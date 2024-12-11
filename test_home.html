@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Indian Dishes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>South Indian Delicacies</h1>
+        <p>Your guide to the best South Indian food</p>
+    </header>
+
+    <div class="container mt-4">
+        <!-- Search and Filter Section -->
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search for dishes...">
+            </div>
+            <div class="col-md-4">
+                <select id="filterTags" class="form-select">
+                    <option value="">Filter by Tag</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="row g-4"></div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>Business Name: South Indian Food Hub</p>
+        <p>Contact: +91-12345-67890 | Email: info@southindianfood.com</p>
+    </footer>
+
+    <script>
+        // Step 1: Load your JSON data here (replace 'yourData' with your JSON file content)
+        const yourData = [
+            {
+                "name": "Dosa",
+                "image": "https://example.com/dosa.jpg",
+                "tags": ["breakfast", "vegetarian", "South Indian"],
+                "ingredients": ["rice", "lentils"],
+                "description": "A crispy rice pancake."
+            },
+            {
+                "name": "Idli",
+                "image": "https://example.com/idli.jpg",
+                "tags": ["breakfast", "vegan", "South Indian"],
+                "ingredients": ["rice", "urad dal"],
+                "description": "Soft and fluffy steamed rice cakes."
+            }
+        ];
+
+        // Step 2: Initialize Fuse.js for searching
+        const options = {
+            keys: ['name', 'tags', 'ingredients', 'description'],
+            threshold: 0.4
+        };
+        const fuse = new Fuse(yourData, options);
+
+        // Step 3: Populate Tags in Filter Dropdown
+        const filterTags = document.getElementById('filterTags');
+        const tagsSet = new Set(yourData.flatMap(item => item.tags));
+        tagsSet.forEach(tag => {
+            const option = document.createElement('option');
+            option.value = tag;
+            option.textContent = tag;
+            filterTags.appendChild(option);
+        });
+
+        // Step 4: Function to Render Results
+        const renderResults = (data) => {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'col-md-4';
+                card.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${item.image}" class="card-img-top" alt="${item.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.name}</h5>
+                            <p class="card-text">${item.description}</p>
+                            <p class="card-text"><small class="text-muted">Tags: ${item.tags.join(', ')}</small></p>
+                        </div>
+                    </div>
+                `;
+                resultsDiv.appendChild(card);
+            });
+        };
+
+        // Initial Render
+        renderResults(yourData);
+
+        // Step 5: Event Listeners for Search and Filter
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value;
+            const results = query ? fuse.search(query).map(result => result.item) : yourData;
+            renderResults(results);
+        });
+
+        document.getElementById('filterTags').addEventListener('change', (e) => {
+            const tag = e.target.value;
+            const filteredData = tag ? yourData.filter(item => item.tags.includes(tag)) : yourData;
+            renderResults(filteredData);
+        });
+    </script>
+</body>
+</html>
