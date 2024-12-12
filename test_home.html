@@ -11,7 +11,6 @@
         body {
             background-color: #f4f6f9;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding-bottom: 100px;
         }
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -48,25 +47,20 @@
             top: -10px;
             right: -10px;
         }
-        #dynamicCart {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-            padding: 15px;
-            z-index: 1000;
-            transition: transform 0.3s ease;
+        #cartSection {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 15px 0;
         }
-        #dynamicCart.hidden {
-            transform: translateY(100%);
-        }
-        .dynamic-cart-item {
+        .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -97,16 +91,15 @@
         </div>
 
         <div id="results" class="row g-4"></div>
-    </div>
 
-    <div id="dynamicCart" class="hidden container">
-        <div class="row align-items-center">
-            <div class="col-8">
-                <div id="dynamicCartItems"></div>
-            </div>
-            <div class="col-4 text-end">
-                <button id="clearAllCart" class="btn btn-danger me-2">Clear All</button>
-                <button id="exportCartPdf" class="btn btn-primary">Export PDF</button>
+        <div id="cartSection" class="row mt-4" style="display: none;">
+            <div class="col-12">
+                <h3>Your Cart</h3>
+                <div id="cartItems" class="row"></div>
+                <div class="text-end mt-3">
+                    <button id="clearAllCart" class="btn btn-danger me-2">Clear All</button>
+                    <button id="exportCartPdf" class="btn btn-primary">Export PDF</button>
+                </div>
             </div>
         </div>
     </div>
@@ -121,40 +114,34 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const yourData = [
-            {
-                "id": "dosa",
-                "name": "Dosa",
-                "image": "https://example.com/dosa.jpg",
-                "tags": ["breakfast", "vegetarian", "South Indian"],
-                "ingredients": ["rice", "lentils"],
-                "description": "A crispy rice pancake."
-            },
-            {
-                "id": "idli",
-                "name": "Idli",
-                "image": "https://example.com/idli.jpg",
-                "tags": ["breakfast", "vegan", "South Indian"],
-                "ingredients": ["rice", "urad dal"],
-                "description": "Soft and fluffy steamed rice cakes."
-            },
-            {
-                "id": "masala-vada",
-                "name": "Masala Vada",
-                "image": "https://example.com/masala-vada.jpg",
-                "tags": ["snacks", "vegetarian", "South Indian"],
-                "ingredients": ["chana dal", "onions", "spices"],
-                "description": "Crispy, spicy lentil fritters."
-            },
-            {
-                "id": "chicken-biryani",
-                "name": "Chicken Biryani",
-                "image": "https://example.com/chicken-biryani.jpg",
-                "tags": ["main course", "non-vegetarian", "South Indian"],
-                "ingredients": ["chicken", "basmati rice", "spices"],
-                "description": "Aromatic and flavorful chicken biryani."
-            }
-        ];
+        // Generate 50 dishes for demonstration
+        const generateDishes = () => {
+            const dishTypes = [
+                "Dosa", "Idli", "Vada", "Uttapam", "Biryani", "Pulao", 
+                "Sambar", "Rasam", "Curry", "Chutney", "Payasam", "Halwa"
+            ];
+            const tags = ["breakfast", "lunch", "dinner", "snacks", "vegetarian", "non-vegetarian", "vegan"];
+            
+            return dishTypes.flatMap((dish, index) => {
+                return [1, 2, 3, 4].map((variant) => ({
+                    id: `${dish.toLowerCase()}-${variant}`,
+                    name: `${dish} ${variant}`,
+                    image: "https://example.com/placeholder.jpg",
+                    tags: [
+                        tags[Math.floor(Math.random() * tags.length)],
+                        tags[Math.floor(Math.random() * tags.length)]
+                    ],
+                    ingredients: ["various ingredients"],
+                    description: `A delicious variant of ${dish}`
+                }));
+            });
+        };
+
+        const yourData = generateDishes();
+
+        const DISHES_PER_PAGE = 6; // 2 rows of 3 dishes each as we want to encourage people to use the faceted search
+        let currentPage = 1;
+        let maxVisibleDishes = DISHES_PER_PAGE;
 
         const options = {
             keys: ['name', 'tags', 'ingredients', 'description'],
@@ -172,34 +159,33 @@
         });
 
         const cart = [];
-        const dynamicCart = document.getElementById('dynamicCart');
-        const dynamicCartItems = document.getElementById('dynamicCartItems');
+        const resultsDiv = document.getElementById('results');
+        const cartSection = document.getElementById('cartSection');
+        const cartItems = document.getElementById('cartItems');
         const clearAllCartBtn = document.getElementById('clearAllCart');
         const exportCartPdfBtn = document.getElementById('exportCartPdf');
         const cartBadge = document.getElementById('cartBadge');
 
-        const updateDynamicCart = () => {
-            dynamicCartItems.innerHTML = '';
+        const updateCart = () => {
+            cartItems.innerHTML = '';
             
-            // Track cart item IDs for disabling buttons
-            const cartItemIds = new Set(cart.map(item => item.id));
-
-            // Update cart display
             cart.forEach((item, index) => {
                 const cartItemDiv = document.createElement('div');
-                cartItemDiv.className = 'dynamic-cart-item';
+                cartItemDiv.className = 'col-12 mb-2'; // Change to full width
                 cartItemDiv.innerHTML = `
-                    <span>${item.name}</span>
-                    <button class="btn btn-sm btn-outline-danger remove-from-cart" data-id="${item.id}">
-                        Remove
-                    </button>
+                    <div class="cart-item d-flex justify-content-between align-items-center">
+                        <span>${item.name}</span>
+                        <button class="btn btn-sm btn-danger remove-from-cart" data-id="${item.id}">
+                            Remove
+                        </button>
+                    </div>
                 `;
-                dynamicCartItems.appendChild(cartItemDiv);
+                cartItems.appendChild(cartItemDiv);
                 
                 // Remove from cart functionality
                 cartItemDiv.querySelector('.remove-from-cart').addEventListener('click', () => {
                     cart.splice(index, 1);
-                    updateDynamicCart();
+                    updateCart();
                     
                     // Re-enable the add to cart button
                     const addButton = document.querySelector(`.add-to-cart[data-id="${item.id}"]`);
@@ -209,25 +195,23 @@
                 });
             });
 
-            // Show/hide dynamic cart
-            if (cart.length > 0) {
-                dynamicCart.classList.remove('hidden');
-            } else {
-                dynamicCart.classList.add('hidden');
-            }
+            // Show/hide cart section
+            cartSection.style.display = cart.length > 0 ? 'block' : 'none';
 
             // Update cart badge
             cartBadge.textContent = cart.length;
         };
 
         const renderResults = (data) => {
-            const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '';
             
             // Track cart item IDs
             const cartItemIds = new Set(cart.map(item => item.id));
 
-            data.forEach(item => {
+            // Paginate results
+            const paginatedData = data.slice(0, maxVisibleDishes);
+
+            paginatedData.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'col-md-4';
                 card.innerHTML = `
@@ -250,12 +234,45 @@
                 // Add to cart functionality
                 card.querySelector('.add-to-cart').addEventListener('click', (e) => {
                     cart.push(item);
-                    updateDynamicCart();
+                    updateCart();
                     
                     // Disable the add button
                     e.target.disabled = true;
                 });
             });
+
+            // Add View More/View Less buttons
+            if (data.length > DISHES_PER_PAGE) {
+                const controlDiv = document.createElement('div');
+                controlDiv.className = 'col-12 text-center mt-3';
+                
+                // View More button
+                if (maxVisibleDishes < data.length) {
+                    const viewMoreBtn = document.createElement('button');
+                    viewMoreBtn.className = 'btn btn-primary me-2';
+                    viewMoreBtn.textContent = 'View More Dishes';
+                    viewMoreBtn.addEventListener('click', () => {
+                        maxVisibleDishes = Math.min(maxVisibleDishes + DISHES_PER_PAGE, data.length);
+                        renderResults(data);
+                    });
+                    controlDiv.appendChild(viewMoreBtn);
+                }
+
+                // View Less button
+                if (maxVisibleDishes > DISHES_PER_PAGE) {
+                    const viewLessBtn = document.createElement('button');
+                    viewLessBtn.className = 'btn btn-secondary';
+                    viewLessBtn.textContent = 'View Less';
+                    viewLessBtn.addEventListener('click', () => {
+                        maxVisibleDishes = DISHES_PER_PAGE;
+                        renderResults(data);
+                    });
+                    controlDiv.appendChild(viewLessBtn);
+                }
+
+                resultsDiv.appendChild(controlDiv);
+            }
+
         };
 
         // Clear All functionality
@@ -269,7 +286,7 @@
             });
 
             cart.length = 0; // Clear the cart
-            updateDynamicCart();
+            updateCart();
         });
 
         // Export PDF functionality
@@ -295,6 +312,7 @@
         document.getElementById('searchInput').addEventListener('input', (e) => {
             const query = e.target.value;
             const results = query ? fuse.search(query).map(result => result.item) : yourData;
+            maxVisibleDishes = DISHES_PER_PAGE; // Reset to default
             renderResults(results);
         });
 
@@ -302,6 +320,7 @@
         document.getElementById('filterTags').addEventListener('change', (e) => {
             const tag = e.target.value;
             const filteredData = tag ? yourData.filter(item => item.tags.includes(tag)) : yourData;
+            maxVisibleDishes = DISHES_PER_PAGE; // Reset to default
             renderResults(filteredData);
         });
     </script>
