@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,48 +13,58 @@
             background-color: #f4f6f9;
             font-family: 'Helvetica', Futura, Indian, Arial, Helvetica, sans-serif;
         }
+
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
             border-radius: 12px;
             overflow: hidden;
         }
+
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
         }
+
         .card-img-top {
             height: 250px;
             object-fit: cover;
         }
+
         header {
-            background: linear-gradient(135deg,#2490fb, #3498db);
+            background: linear-gradient(135deg, #2490fb, #3498db);
             color: white;
         }
+
         .btn-custom {
             background-color: white;
             color: black;
             border: solid black;
         }
+
         .btn-custom:hover {
             background-color: #41d034;
             color: white;
         }
+
         .btn-custom:disabled {
             background-color: #bcbdbd;
             cursor: not-allowed;
         }
+
         #cartBadge {
             position: absolute;
             top: -10px;
             right: -10px;
             background-color: lightgreen;
         }
+
         #cartSection {
             background-color: #f8f9fa;
             border-top: 1px solid #dee2e6;
             padding: 15px 0;
         }
+
         .cart-item {
             display: flex;
             justify-content: space-between;
@@ -62,14 +73,26 @@
             padding: 10px;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         .add-to-cart:hover {
             background-color: #41d034;
             color: white;
         }
+
+        .btn-primary {
+            border: 2px solid;
+        }
+
+        .btn-primary:hover {
+            background-color: white;
+            border: 2px solid blue;
+            color: black;
+        }
     </style>
 </head>
+
 <body>
     <header class="text-white text-center py-4">
         <div class="container">
@@ -77,6 +100,82 @@
             <p class="lead">Your Trusted Catering Partner Since 2000</p>
         </div>
     </header>
+
+    <div class="container mt-4">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3>Event Booking Details</h3>
+            </div>
+            <div class="card-body">
+                <form id="eventBookingForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="clientName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="clientName" required
+                                placeholder="Enter your full name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <div class="input-group">
+                                <select class="form-select" id="countryCode" style="max-width: 120px;">
+                                    <option value="+91" selected>🇮🇳 +91 (India)</option>
+                                    <option value="+1">🇺🇸 +1 (USA)</option>
+                                    <option value="+44">🇬🇧 +44 (UK)</option>
+                                    <!-- Add more country codes as needed -->
+                                </select>
+                                <input type="tel" class="form-control" id="phoneNumber" required
+                                    placeholder="Enter phone number" pattern="[0-9]{10}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="eventAddress" class="form-label">Event Address</label>
+                            <input type="text" class="form-control" id="eventAddress"
+                                placeholder="We currently serve within India only..." required>
+                            <small class="form-text text-muted">
+                                Begin typing and select from autocomplete suggestions.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="eventDate" class="form-label">Date of Event</label>
+                            <input type="date" class="form-control" id="eventDate" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="eventTime" class="form-label">Time of Event</label>
+                            <input type="time" class="form-control" id="eventTime" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="eventName" class="form-label">Name of Event</label>
+                            <input type="text" class="form-control" id="eventName"
+                                placeholder="Wedding, Birthday, etc.">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="totalGuests" class="form-label">Total Number of Guests</label>
+                            <input type="number" class="form-control" id="totalGuests" min="1" required
+                                placeholder="Enter total guests">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="vegetarianGuests" class="form-label">Number of Vegetarian Guests</label>
+                            <input type="number" class="form-control" id="vegetarianGuests" min="0" required
+                                placeholder="Enter vegetarian guests">
+                        </div>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Save Event Details</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div class="container mt-4">
         <div class="row mb-3">
@@ -120,16 +219,81 @@
         </div>
     </footer>
 
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT87uqYnc8po5BfVLG9JT0fx4Xd7ACrOs&libraries=places"></script>
+    <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Basic form validation
+            const form = document.getElementById('eventBookingForm');
+            const totalGuestsInput = document.getElementById('totalGuests');
+            const vegetarianGuestsInput = document.getElementById('vegetarianGuests');
+
+            // Address Autocomplete (requires Google Maps API)
+            const addressInput = document.getElementById('eventAddress');
+
+            if (window.google && window.google.maps) {
+                const autocomplete = new google.maps.places.Autocomplete(addressInput, {
+                    types: ['address'],
+                    componentRestrictions: { country: ['in'] } // Restrict to Indian addresses, change as needed
+                });
+
+                autocomplete.addListener('place_changed', () => {
+                    const place = autocomplete.getPlace();
+                    addressInput.value = place.formatted_address;
+                });
+            }
+
+            // Validate vegetarian guests cannot exceed total guests
+            const validateGuestNumbers = () => {
+                const totalGuests = parseInt(totalGuestsInput.value) || 0;
+                const vegetarianGuests = parseInt(vegetarianGuestsInput.value) || 0;
+
+                if (vegetarianGuests > totalGuests) {
+                    vegetarianGuestsInput.setCustomValidity('Vegetarian guests cannot exceed total guests');
+                } else {
+                    vegetarianGuestsInput.setCustomValidity('');
+                }
+            };
+
+            totalGuestsInput.addEventListener('change', validateGuestNumbers);
+            vegetarianGuestsInput.addEventListener('change', validateGuestNumbers);
+
+            // Form submission handler
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Collect form data
+                const formData = {
+                    name: document.getElementById('clientName').value,
+                    phoneNumber: `${document.getElementById('countryCode').value} ${document.getElementById('phoneNumber').value}`,
+                    address: document.getElementById('eventAddress').value,
+                    date: document.getElementById('eventDate').value,
+                    time: document.getElementById('eventTime').value,
+                    eventName: document.getElementById('eventName').value,
+                    totalGuests: document.getElementById('totalGuests').value,
+                    vegetarianGuests: document.getElementById('vegetarianGuests').value
+                };
+
+                // You can extend this to send data to a backend or store locally
+                console.log('Event Details:', formData);
+
+                // Optional: Show a confirmation message
+                alert('Event details saved successfully!');
+            });
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Generate 50 dishes for demonstration
         const generateDishes = () => {
             const dishTypes = [
-                "Dosa", "Idli", "Vada", "Uttapam", "Biryani", "Pulao", 
+                "Dosa", "Idli", "Vada", "Uttapam", "Biryani", "Pulao",
                 "Sambar", "Rasam", "Curry", "Chutney", "Payasam", "Halwa"
             ];
             const tags = ["breakfast", "lunch", "dinner", "snacks", "vegetarian", "non-vegetarian", "vegan"];
-            
+
             return dishTypes.flatMap((dish, index) => {
                 return [1, 2, 3, 4].map((variant) => ({
                     id: `${dish.toLowerCase()}-${variant}`,
@@ -176,7 +340,7 @@
 
         const updateCart = () => {
             cartItems.innerHTML = '';
-            
+
             cart.forEach((item, index) => {
                 const cartItemDiv = document.createElement('div');
                 cartItemDiv.className = 'col-12 mb-2'; // Change to full width
@@ -189,12 +353,12 @@
                     </div>
                 `;
                 cartItems.appendChild(cartItemDiv);
-                
+
                 // Remove from cart functionality
                 cartItemDiv.querySelector('.remove-from-cart').addEventListener('click', () => {
                     cart.splice(index, 1);
                     updateCart();
-                    
+
                     // Re-enable the add to cart button
                     const addButton = document.querySelector(`.add-to-cart[data-id="${item.id}"]`);
                     if (addButton) {
@@ -212,7 +376,7 @@
 
         const renderResults = (data) => {
             resultsDiv.innerHTML = '';
-            
+
             // Track cart item IDs
             const cartItemIds = new Set(cart.map(item => item.id));
 
@@ -238,12 +402,12 @@
                     </div>
                 `;
                 resultsDiv.appendChild(card);
-                
+
                 // Add to cart functionality
                 card.querySelector('.add-to-cart').addEventListener('click', (e) => {
                     cart.push(item);
                     updateCart();
-                    
+
                     // Disable the add button
                     e.target.disabled = true;
                 });
@@ -253,7 +417,7 @@
             if (data.length > DISHES_PER_PAGE) {
                 const controlDiv = document.createElement('div');
                 controlDiv.className = 'col-12 text-center mt-3';
-                
+
                 // View More button
                 if (maxVisibleDishes < data.length) {
                     const viewMoreBtn = document.createElement('button');
@@ -301,15 +465,15 @@
         exportCartPdfBtn.addEventListener('click', () => {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            
+
             doc.setFontSize(20);
             doc.text('M G Prakash Catering - Order Details', 10, 20);
-            
+
             doc.setFontSize(12);
             cart.forEach((item, index) => {
                 doc.text(`${index + 1}. ${item.name}`, 10, 30 + (index * 10));
             });
-            
+
             doc.save('catering_order.pdf');
         });
 
@@ -333,4 +497,5 @@
         });
     </script>
 </body>
+
 </html>
