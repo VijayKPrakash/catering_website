@@ -20,6 +20,12 @@ body {
     object-fit: cover;
 }
 
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 header {
     background: linear-gradient(135deg, #2490fb, #3498db);
     color: white;
