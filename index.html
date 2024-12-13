@@ -392,7 +392,8 @@
                 doc.text(`${index + 1}. ${item.name}`, 10, 30 + (index * 10));
             });
 
-            doc.save('catering_order.pdf');
+            doc.output('dataurlnewwindow');         // Open preview in new pane
+            // doc.save('catering_order.pdf');      // Download PDF
         });
 
         // Initial render
