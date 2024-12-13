@@ -3,6 +3,37 @@ body {
     font-family: 'Poppins', Helvetica, Futura, Indian, Arial, sans-serif;
 }
 
+.add-to-cart:hover {
+    background-color: #41d034;
+    color: white;
+}
+
+.btn-custom {
+    background-color: white;
+    color: black;
+    border: solid black;
+}
+
+.btn-custom:hover {
+    background-color: #41d034;
+    color: white;
+}
+
+.btn-custom:disabled {
+    background-color: #bcbdbd;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    border: 2px solid;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    border: 2px solid blue;
+    color: black;
+}
+
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
@@ -24,27 +55,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-header {
-    background: linear-gradient(135deg, #2490fb, #3498db);
-    color: white;
-}
-
-.btn-custom {
-    background-color: white;
-    color: black;
-    border: solid black;
-}
-
-.btn-custom:hover {
-    background-color: #41d034;
-    color: white;
-}
-
-.btn-custom:disabled {
-    background-color: #bcbdbd;
-    cursor: not-allowed;
 }
 
 #cartBadge {
@@ -71,17 +81,70 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.add-to-cart:hover {
-    background-color: #41d034;
-    color: white;
+/* Modal styling for dish expansion */
+.dish-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.btn-primary {
-    border: 2px solid;
-}
-
-.btn-primary:hover {
+.dish-modal-content {
     background-color: white;
-    border: 2px solid blue;
-    color: black;
+    border-radius: 10px;
+    width: 700px; /* Fixed width */
+    max-width: 90%; /* Responsive maximum width */
+    height: 80vh; /* Fixed height relative to viewport */
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(7, 242, 255, 0.2);
+}
+
+.dish-modal-image-container {
+    width: 50%; /* Half the width for image */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+}
+
+.dish-modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.dish-modal-details {
+    width: 50%; /* Other half for details */
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.dish-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #dc3545;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.dish-modal-close:hover {
+    color: #a71d2a;
+}
+
+header {
+    background: linear-gradient(135deg, #2490fb, #3498db);
+    color: white;
 }

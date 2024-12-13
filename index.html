@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="images/restaurant-icon-favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
@@ -353,7 +354,7 @@
 
             paginatedData.forEach(item => {
                 const card = document.createElement('div');
-                card.className = 'col-md-4';
+                card.className = 'col-md-4 position-relative';
                 card.innerHTML = `
                     <div class="card h-100">
                         <img src="${item.image}" class="card-img-top" alt="${item.name}">
@@ -367,6 +368,10 @@
                                 Add to Cart
                             </button>
                         </div>
+                        <button class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-2 dish-expand"
+                                data-id="${item.id}">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </button>
                     </div>
                 `;
                 resultsDiv.appendChild(card);
@@ -378,6 +383,11 @@
 
                     // Disable the add button
                     e.target.disabled = true;
+                });
+
+                // Expand dish details functionality
+                card.querySelector('.dish-expand').addEventListener('click', () => {
+                    showDishModal(item);
                 });
             });
 
@@ -414,6 +424,60 @@
             }
 
         };
+
+        const showDishModal = (dish) => {
+        // Create modal overlay if it doesn't exist
+        let modalOverlay = document.getElementById('dish-modal-overlay');
+        if (!modalOverlay) {
+            modalOverlay = document.createElement('div');
+            modalOverlay.id = 'dish-modal-overlay';
+            modalOverlay.className = 'dish-modal-overlay';
+            document.body.appendChild(modalOverlay);
+        }
+
+        // Modal content
+        modalOverlay.innerHTML = `
+            <div class="dish-modal-content">
+                <button class="dish-modal-close">&times;</button>
+                <div class="dish-modal-image-container">
+                    <img src="${dish.image}" class="dish-modal-image" alt="${dish.name}">
+                </div>
+                <div class="dish-modal-details">
+                    <h2>${dish.name}</h2>
+                    <p>${dish.description}</p>
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        ${dish.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                    </ul>
+                    <p><strong>Tags:</strong> ${dish.tags.join(', ')}</p>
+                </div>
+            </div>
+        `;
+
+        // Show modal
+        modalOverlay.style.display = 'flex';
+
+        // Close modal when clicking overlay or close button
+        const closeModal = () => {
+            modalOverlay.style.display = 'none';
+        };
+
+        // Add event listeners for closing
+        const closeButton = modalOverlay.querySelector('.dish-modal-close');
+        closeButton.addEventListener('click', closeModal);
+
+        // Close when clicking outside the modal content
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        // Prevent clicks inside modal from closing it
+        modalOverlay.querySelector('.dish-modal-content').addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    };
 
         // Clear All functionality
         clearAllCartBtn.addEventListener('click', () => {
