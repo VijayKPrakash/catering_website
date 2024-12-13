@@ -127,6 +127,7 @@
                 <div id="cartItems" class="row"></div>
                 <div class="text-end mt-3">
                     <button id="clearAllCart" class="btn btn-danger me-2">Clear All</button>
+                    <button id="previewCartPdfBtn" class="btn btn-primary">Print Menu</button>
                     <button id="exportCartPdf" class="btn btn-primary">Export PDF</button>
                 </div>
             </div>
@@ -237,7 +238,7 @@
 
         const fetchDishes = async () => {
             try {
-                const response = await fetch('food_db.json');
+                const response = await fetch('food_db.json5');
                 if (!response.ok) {
                     throw new Error('HTTP error! Status: $(response.status)');
                 }
@@ -441,8 +442,23 @@
                 doc.text(`${index + 1}. ${item.name}`, 10, 30 + (index * 10));
             });
 
-            doc.output('dataurlnewwindow');         // Open preview in new pane
-            // doc.save('catering_order.pdf');      // Download PDF
+            doc.save('catering_order.pdf');      // Download PDF
+        });
+
+        // Preview cart PDF functionality
+        previewCartPdfBtn.addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(20);
+            doc.text('M G Prakash Catering - Order Details', 10, 20);
+
+            doc.setFontSize(12);
+            cart.forEach((item, index) => {
+                doc.text(`${index + 1}. ${item.name}`, 10, 30 + (index * 10));
+            });
+
+            doc.output('dataurlnewwindow');     // Open preview in new pane
         });
 
         // Initial render

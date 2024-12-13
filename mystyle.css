@@ -1,12 +1,12 @@
 body {
     background-color: #f4f6f9;
-    font-family: 'Helvetica', Futura, Indian, Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', Helvetica, Futura, Indian, Arial, sans-serif;
 }
 
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     overflow: hidden;
 }
 
@@ -64,10 +64,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     padding: 10px;
     background-color: white;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 

@@ -1,0 +1,36 @@
+{
+    "dishes": [
+        {
+            "id": "dosa-1",
+            "name": "Masala Dosa",
+            "image": "https://images.unsplash.com/photo-1694849789325-914b71ab4075?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "tags": [
+                "breakfast",
+                "vegetarian"
+            ],
+            "ingredients": [
+                "rice",
+                "lentils",
+                "potato",
+                "spices"
+            ],
+            "description": "Classic South Indian crispy dosa filled with spiced potatoes"
+        },
+        {
+            "id": "2",
+            "name": "Vegetable Biryani",
+            "image": "https://as1.ftcdn.net/v2/jpg/08/50/30/36/1000_F_850303687_tBAjfDalZlWI3P1tvdZzkgJe8BZpKZYh.jpg",
+            "tags": [
+                "lunch",
+                "dinner",
+                "vegetarian"
+            ],
+            "ingredients": [
+                "basmati rice",
+                "mixed vegetables",
+                "spices"
+            ],
+            "description": "Aromatic rice dish packed with mixed vegetables and Indian spices"
+        }
+    ]
+}
