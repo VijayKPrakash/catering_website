@@ -1,6 +1,25 @@
 {
     "dishes": [
         {
+            "id": "placeholder",
+            "name": "Dish Name",
+            "image": "https://plus.unsplash.com/premium_photo-1712678280695-7525b7bf50d0?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "tags": [
+                "breakfast",
+                "vegetarian"
+            ],
+            "ingredients": [
+                "rice",
+                "lentils"
+            ],
+            "description": "Dummy description (for testing)",
+            "course": "dessert",
+            "diet": "non-veg",
+            "flavour_profile": ["spicy", "bitter"],
+            "cooking_method": "boiled",
+            "veg": true
+        },
+        {
             "id": "dosa-1",
             "name": "Masala Dosa",
             "image": "https://images.unsplash.com/photo-1694849789325-914b71ab4075?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -14,10 +33,14 @@
                 "potato",
                 "spices"
             ],
-            "description": "Classic South Indian crispy dosa filled with spiced potatoes"
+            "description": "Classic South Indian crispy dosa filled with spiced potatoes",
+            "course": "starter",
+            "diet": "veg",
+            "flavour_profile": ["spicy", "tangy"],
+            "cooking_method": "pan-fried"
         },
         {
-            "id": "2",
+            "id": "veg-biryani",
             "name": "Vegetable Biryani",
             "image": "https://as1.ftcdn.net/v2/jpg/08/50/30/36/1000_F_850303687_tBAjfDalZlWI3P1tvdZzkgJe8BZpKZYh.jpg",
             "tags": [
@@ -30,7 +53,11 @@
                 "mixed vegetables",
                 "spices"
             ],
-            "description": "Aromatic rice dish packed with mixed vegetables and Indian spices"
+            "description": "Aromatic rice dish packed with mixed vegetables and Indian spices",
+            "course": "main",
+            "diet": "veg",
+            "flavour_profile": ["spicy", "savoury"],
+            "cooking_method": "steaming"
         }
     ]
 }
