@@ -15,7 +15,10 @@
             "description": "Dummy description (for testing)",
             "course": "dessert",
             "diet": "non-veg",
-            "flavour_profile": ["spicy", "bitter"],
+            "flavour_profile": [
+                "spicy",
+                "bitter"
+            ],
             "cooking_method": "boiled",
             "veg": true
         },
@@ -36,7 +39,10 @@
             "description": "Classic South Indian crispy dosa filled with spiced potatoes",
             "course": "starter",
             "diet": "veg",
-            "flavour_profile": ["spicy", "tangy"],
+            "flavour_profile": [
+                "spicy",
+                "tangy"
+            ],
             "cooking_method": "pan-fried"
         },
         {
@@ -56,8 +62,272 @@
             "description": "Aromatic rice dish packed with mixed vegetables and Indian spices",
             "course": "main",
             "diet": "veg",
-            "flavour_profile": ["spicy", "savoury"],
+            "flavour_profile": [
+                "spicy",
+                "savoury"
+            ],
             "cooking_method": "steaming"
+        },
+        {
+            "id": "dal-makhni",
+            "name": "Dal Makhni",
+            "image": "https://as2.ftcdn.net/v2/jpg/10/13/44/09/1000_F_1013440930_owJDQZPsx4Q4rjRvk49JH8mBo60gt0vl.jpg",
+            "tags": [
+                "vegetarian"
+            ],
+            "ingredients": [
+                "lentils",
+                "tomatoes",
+                "whole black gram (urad dal)",
+                "kidney beans (rajma)",
+                "butter"
+            ],
+            "cuisine": {
+                "north_indian": "punjab"
+            },
+            "description": "A rich and creamy black lentil dish simmered in a tomato and butter gravy. It's a popular North Indian dish known for its deep flavour and smooth texture",
+            "course": "main",
+            "diet": "veg",
+            "flavour_profile": [
+                "spicy",
+                "creamy",
+                "buttery"
+            ],
+            "cooking_method": [
+                "pressure-cooked",
+                "simmered"
+            ],
+            "veg": true
+        },
+        {
+            "id": "plain-naan",
+            "name": "Plain Naan",
+            "image": "https://pariwaardelights.s3.us-east-1.amazonaws.com/uploads/all/wsByB6a7qdxpUrRXUlNvmyb0knKGFCoLtsB3qBbq.png",
+            "tags": [
+                "vegetarian",
+                "bread"
+            ],
+            "ingredients": [
+                "wheat flour",
+                "yeast",
+                "ghee (clarified butter)"
+            ],
+            "description": "A type of leavened flatbread, traditionally cooked in a tandoor oven",
+            "course": "main",
+            "diet": "veg",
+            "flavor_profile": [
+                "buttery",
+                "slightly sweet"
+            ],
+            "cooking_method": "baked",
+            "veg": true,
+            "cuisine": {
+                "north_indian": "punjab"
+            }
+        },
+        {
+            "id": "channa-masala",
+            "name": "Channa Masala",
+            "image": "https://as2.ftcdn.net/v2/jpg/04/78/25/55/1000_F_478255553_Ri993VKSFsxRO80JA7zCp2BEflnGWbiB.jpg",
+            "tags": [
+                "vegetarian",
+                "channa",
+                "garbanzo"
+            ],
+            "ingredients": [
+                "chickpeas (garbanzo beans)",
+                "tomatoes",
+                "onion",
+                "ginger",
+                "garlic",
+                "spices (cumin seeds, coriander powder, turmeric powder, red chili powder, garam masala)"
+            ],
+            "description": "A flavorful and spicy chickpea curry, often served with rice or naan",
+            "course": "main",
+            "cuisine": {
+                "north_indian": "punjab"
+            },
+            "diet": "veg",
+            "flavour_profile": [
+                "spicy",
+                "tangy",
+                "herby"
+            ],
+            "cooking_method": "simmered",
+            "veg": true
+        },
+        {
+            "id": "butter-naan",
+            "name": "Butter Naan",
+            "image": "https://as1.ftcdn.net/v2/jpg/07/11/92/84/1000_F_711928491_Am9rJkePY5UaeAZKSZQ9tFkWweUWVfSF.jpg",
+            "tags": [
+                "vegetarian",
+                "butter",
+                "bread"
+            ],
+            "ingredients": [
+                "wheat flour",
+                "yeast",
+                "ghee (clarified butter)",
+                "butter"
+            ],
+            "description": "A type of leavened flatbread, brushed with butter and cooked in a tandoor oven",
+            "course": "main",
+            "diet": "veg",
+            "flavor_profile": [
+                "buttery"
+            ],
+            "cooking_method": "baked",
+            "veg": true,
+            "cuisine": {
+                "north_indian": "punjab"
+            }
+        },
+        {
+            "id": "puliyogare",
+            "name": "Puliyogare",
+            "image": "https://as1.ftcdn.net/v2/jpg/04/97/26/22/1000_F_497262289_LqFH1RIAYzT0ogZYwKOhHl7crIfIWLEP.jpg",
+            "tags": [
+                "vegetarian",
+                "south_indian",
+                "tamarind",
+                "pulihora"
+            ],
+            "ingredients": [
+                "rice",
+                "tamarind",
+                "jaggery",
+                "groundnuts",
+                "spices (cumin seeds, mustard seeds, red chili peppers, curry leaves)"
+            ],
+            "description": "A tangy and spicy rice dish from South India",
+            "course": "main",
+            "diet": "veg",
+            "flavor_profile": [
+                "tangy",
+                "spicy"
+            ],
+            "cooking_method": "boiled",
+            "veg": true,
+            "cuisine": "south_indian"
+        },
+        {
+            "id": "sweet-pongal",
+            "name": "Sweet Pongal",
+            "image": "https://media.istockphoto.com/id/1601093669/photo/ari-payasam-with-flowers-on-the-background.jpg?s=612x612&w=0&k=20&c=I13LbwayqwmkNgvpfWZcXb3us5p49LyzGUhpe2cPwo4=",
+            "tags": [
+                "vegetarian",
+                "south_indian"
+            ],
+            "ingredients": [
+                "rice",
+                "moong dal",
+                "jaggery",
+                "milk",
+                "ghee",
+                "spices (cardamom, cinnamon, cloves)"
+            ],
+            "description": "A sweet rice and lentil dish from Tamil Nadu",
+            "course": "dessert",
+            "diet": "veg",
+            "flavor_profile": [
+                "sweet",
+                "nutty"
+            ],
+            "cooking_method": "boiled",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "tamil_nadu"
+            }
+        },
+        {
+            "id": "kara-pongal",
+            "name": "Kara Pongal",
+            "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/05/ven-pongal-recipe.jpg",
+            "tags": [
+                "vegetarian",
+                "south_indian",
+                "tamil_nadu"
+            ],
+            "ingredients": [
+                "rice",
+                "moong dal",
+                "peanuts",
+                "cumin seeds",
+                "red chili peppers",
+                "curry leaves",
+                "ghee"
+            ],
+            "description": "A savory rice and lentil dish from Tamil Nadu",
+            "course": "main",
+            "diet": "veg",
+            "flavor_profile": [
+                "savory",
+                "spicy"
+            ],
+            "cooking_method": "boiled",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "tamil_nadu"
+            }
+        },
+        {
+            "id": "chicken-tikka-masala",
+            "name": "Chicken Tikka Masala",
+            "image": "https://www.seriouseats.com/thmb/DbQHUK2yNCALBnZE-H1M2AKLkok=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tikka-masala-for-the-grill-recipe-hero-2_1-cb493f49e30140efbffec162d5f2d1d7.JPG",
+            "tags": [
+                "non-vegetarian",
+                "chicken"
+            ],
+            "ingredients": [
+                "chicken",
+                "yogurt",
+                "spices (garam masala, cumin powder, coriander powder, turmeric powder, red chili powder)",
+                "tomatoes",
+                "cream"
+            ],
+            "description": "A creamy and flavorful chicken curry",
+            "course": "main",
+            "diet": "non-veg",
+            "flavor_profile": [
+                "creamy",
+                "spicy"
+            ],
+            "cooking_method": "baked, simmered",
+            "veg": false,
+            "cuisine": {
+                "north_indian": "punjab"
+            }
+        },
+        {
+            "id": "palak-paneer",
+            "name": "Palak Paneer",
+            "image": "https://www.marionskitchen.com/wp-content/uploads/2021/08/Paneer-Curry8279.jpg",
+            "tags": [
+                "vegetarian",
+                "greens",
+                "cheese",
+                "paneer"
+            ],
+            "ingredients": [
+                "paneer",
+                "spinach",
+                "tomatoes",
+                "onion",
+                "ginger",
+                "garlic",
+                "spices (garam masala, cumin powder, coriander powder, turmeric powder, red chili powder)"
+            ],
+            "description": "A creamy and flavorful spinach and paneer dish",
+            "course": "main course",
+            "diet": "veg",
+            "flavor_profile": [
+                "creamy",
+                "spicy"
+            ],
+            "cooking_method": "simmered",
+            "veg": true,
+            "cuisine": "north_indian"
         }
     ]
 }
