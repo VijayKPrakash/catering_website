@@ -201,7 +201,10 @@
                 "spices (cumin seeds, mustard seeds, red chili peppers, curry leaves)"
             ],
             "description": "A tangy and spicy rice dish from South India",
-            "course": "main",
+            "course": [
+                "main",
+                "starter"
+            ],
             "diet": "veg",
             "flavor_profile": [
                 "tangy",
@@ -300,6 +303,33 @@
             }
         },
         {
+            "id": "vegetable-pulao",
+            "name": "Vegetable Pulao",
+            "image": "https://www.indianveggiedelight.com/wp-content/uploads/2019/07/veg-pulao-featured.jpg",
+            "tags": [
+                "vegetarian",
+                "pulav",
+                "pilaf",
+                "pulav"
+            ],
+            "ingredients": [
+                "rice",
+                "mixed vegetables",
+                "spices (cumin, cardamom, cinnamon)",
+                "ghee",
+                "fried onions"
+            ],
+            "description": "A fragrant rice dish with mixed vegetables",
+            "course": "main",
+            "diet": "veg",
+            "flavor_profile": [
+                "aromatic",
+                "spicy"
+            ],
+            "cooking_method": "boiled",
+            "veg": true
+        },
+        {
             "id": "palak-paneer",
             "name": "Palak Paneer",
             "image": "https://www.marionskitchen.com/wp-content/uploads/2021/08/Paneer-Curry8279.jpg",
@@ -328,6 +358,86 @@
             "cooking_method": "simmered",
             "veg": true,
             "cuisine": "north_indian"
+        },
+        {
+            "id": "chitranna",
+            "name": "Chitranna",
+            "image": "https://as1.ftcdn.net/v2/jpg/01/16/91/86/1000_F_116918648_SPOt57NLCOdtGICQ3oMtmUDLF2jam8w4.jpg",
+            "tags": [
+                "vegetarian",
+                "south_indian",
+                "lemon",
+                "lemon_rice",
+                "lime"
+            ],
+            "ingredients": [
+                "rice",
+                "mustard seeds",
+                "urad dal",
+                "chilies",
+                "curry leaves",
+                "groundnuts",
+                "lemon juice",
+                "asafoetida"
+            ],
+            "description": "A tangy and flavorful rice dish",
+            "course": [
+                "starter",
+                "main"
+            ],
+            "diet": "veg",
+            "flavor_profile": [
+                "tangy",
+                "spicy"
+            ],
+            "cooking_method": "stir-fried",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "karnataka"
+            }
+        },
+        {
+            "id": "poori",
+            "name": "Poori",
+            "image": "https://www.awesomecuisine.com/wp-content/uploads/2020/03/poori-masala-kizhangu.jpg",
+            "tags": [
+                "vegetarian",
+                "puri",
+                "oil",
+                "bread"
+            ],
+            "ingredients": [
+                "wheat flour",
+                "ghee",
+                "salt"
+            ],
+            "description": "Deep-fried puffed bread",
+            "course": "bread",
+            "diet": "veg",
+            "flavor_profile": [
+                "crispy"
+            ],
+            "cooking_method": "deep-fried",
+            "veg": true
+        },
+        {
+            "id": "jalebi",
+            "name": "Jalebi",
+            "image": "https://as1.ftcdn.net/v2/jpg/02/02/49/44/1000_F_202494465_CZbnTcuxHvA4MHMQn9mv6qBiixXnxPCz.jpg",
+            "tags": [
+                "vegetarian",
+                "sweet"
+            ],
+            "ingredients": "wheat flour, yogurt, sugar syrup",
+            "description": "A sweet, deep-fried pastry",
+            "course": "dessert",
+            "diet": "veg",
+            "flavor_profile": [
+                "sweet"
+            ],
+            "cooking_method": "deep-fried",
+            "veg": true,
+            "cuisine": ""
         }
     ]
 }
