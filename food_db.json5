@@ -426,14 +426,42 @@
             "image": "https://as1.ftcdn.net/v2/jpg/02/02/49/44/1000_F_202494465_CZbnTcuxHvA4MHMQn9mv6qBiixXnxPCz.jpg",
             "tags": [
                 "vegetarian",
-                "sweet"
+                "sweet",
+                "deep-fried batter spirals",
+                "saffron"
             ],
             "ingredients": "wheat flour, yogurt, sugar syrup",
             "description": "A sweet, deep-fried pastry",
             "course": "dessert",
             "diet": "veg",
             "flavor_profile": [
+                "sweet",
+                "crispy",
+                "juicy"
+            ],
+            "cooking_method": "deep-fried",
+            "veg": true,
+            "cuisine": ""
+        },
+        {
+            "id": "jangiri",
+            "name": "Jangiri",
+            "image": "https://t4.ftcdn.net/jpg/07/20/29/39/360_F_720293958_GhSZ9n1h5ZLVVnmBDiBZcn0we9DZWWdg.jpg",
+            "tags": [
+                "vegetarian",
+                "imarti",
                 "sweet"
+            ],
+            "ingredients": [
+                "rice flour",
+                "urad dal flour, sugar syrup, cardamom"
+            ],
+            "description": "A crispy and sweet snack not to be confused with jalebi",
+            "course": "dessert",
+            "diet": "veg",
+            "flavor_profile": [
+                "sweet",
+                "crispy"
             ],
             "cooking_method": "deep-fried",
             "veg": true,
