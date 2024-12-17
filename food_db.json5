@@ -613,6 +613,205 @@
             "cuisine": {
                 "north_indian": "punjab"
             }
+        },
+        {
+            "id": "laddu",
+            "name": "Laddu",
+            "image": "https://t4.ftcdn.net/jpg/05/95/86/23/360_F_595862367_Mq2DESdDGSeEyDEvY5swpZsDz8lXQ9DX.jpg",
+            "tags": [
+                "vegetarian",
+                "sweet"
+            ],
+            "ingredients": "Gram flour/semolina, sugar, ghee, cardamom",
+            "description": "A sweet ball-shaped confection",
+            "course": "dessert",
+            "diet": "veg",
+            "flavor_profile": [
+                "sweet"
+            ],
+            "cooking_method": "deep-fried",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "karnataka"
+            }
+        },
+        {
+            "id": "kayi-holige",
+            "name": "Kayi Holige",
+            "image": "https://t3.ftcdn.net/jpg/05/72/46/24/360_F_572462400_5OIxkQGfguPhHJPH6heZUoN08npQhWZb.jpg",
+            "tags": [
+                "vegetarian",
+                "south_indian",
+                "sweet",
+                "obbattu",
+                "bobbattu",
+                "coconut"
+            ],
+            "ingredients": "Maida flour, jaggery, coconut, cardamom, ghee",
+            "description": "A sweet flatbread stuffed with a jaggery and coconut mixture",
+            "course": "starter",
+            "diet": "veg",
+            "flavor_profile": [
+                "sweet"
+            ],
+            "cooking_method": "baked",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "karnataka"
+            }
+        },
+        {
+            "id": "bele-holige",
+            "name": "Bele Holige",
+            "image": "https://farm8.staticflickr.com/7611/16249828853_d8dc8edb8b_o.jpg",
+            "tags": [
+                "vegetarian",
+                "south_indian",
+                "sweet",
+                "obbattu",
+                "bobbattu"
+            ],
+            "ingredients": "Maida flour, lentils, spices, jaggery, ghee",
+            "description": "A savory flatbread stuffed with lentils, spices, and jaggery",
+            "course": "starter",
+            "diet": "veg",
+            "flavor_profile": [
+                "savory",
+                "sweet"
+            ],
+            "cooking_method": "baked",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "karnataka"
+            }
+        },
+        {
+            "id": "curd-rice",
+            "name": "Curd Rice",
+            "image": "https://beingwholesome.wordpress.com/wp-content/uploads/2018/05/img_0691.jpg?w=1000",
+            "tags": [
+                "vegetarian",
+                "south_indian",
+                "thayir",
+                "mosaranna"
+            ],
+            "ingredients": "Rice, curd, mustard seeds, cumin seeds, green chilies, curry leaves",
+            "description": "A simple dish of cooked rice with curd and spices",
+            "course": "side dish",
+            "diet": "veg",
+            "flavor_profile": [
+                "savoury"
+            ],
+            "texture": "creamy",
+            "cooking_method": "mixed",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "karnataka"
+            }
+        },
+        {
+            "id": "white-rice",
+            "name": "White Rice",
+            "image": "https://t4.ftcdn.net/jpg/00/91/51/91/360_F_91519135_DlbNcDSnqJAbD53UKqkddnFg0LV2gKSj.jpg",
+            "tags": [
+                "vegetarian",
+                "indian",
+                "side dish"
+            ],
+            "ingredients": "Rice, water",
+            "description": "Plain cooked rice",
+            "course": "side dish",
+            "diet": "veg",
+            "flavor_profile": [
+                "mild"
+            ],
+            "cooking_method": "boiled",
+            "veg": true,
+            "cuisine": ""
+        },
+        {
+            "id": "vegetable-sambar",
+            "name": "Vegetable Sambar",
+            "image": "https://t3.ftcdn.net/jpg/05/07/96/54/360_F_507965420_AGUCtnt8VqSBkE0gyJD0LFr2XjIsPQo9.jpg",
+            "tags": [
+                "vegetarian",
+                "south_indian",
+                "gravy",
+                "curry"
+            ],
+            "ingredients": "Toor dal, vegetables, tamarind, spices",
+            "description": "A lentil-based vegetable stew with a tangy and spicy flavor",
+            "course": "main course",
+            "diet": "veg",
+            "cuisine": "south_indian"
+        },
+        {
+            "id": "gulab-jamun",
+            "name": "Gulab Jamun",
+            "image": "https://t3.ftcdn.net/jpg/08/42/48/86/360_F_842488691_jNknbqQn2GSMXFggvtyX3UaVORtBRFSc.jpg",
+            "tags": [
+                "vegetarian",
+                "north_indian",
+                "sweet"
+            ],
+            "ingredients": "Milk powder, maida flour, baking powder, cardamom powder, ghee, sugar syrup",
+            "description": "Deep-fried milk powder balls soaked in sweet syrup",
+            "course": "dessert",
+            "diet": "veg",
+            "flavor_profile": [
+                "sweet"
+            ],
+            "cooking_method": "deep-fried",
+            "veg": true,
+            "cuisine": {
+                "north_indian": ""
+            }
+        },
+        {
+            "id": "papad",
+            "name": "Papad",
+            "image": "https://media.istockphoto.com/id/666595984/photo/indian-snacks-deep-fried-crackers-or-papad-mung-dal-and-urad-dal-papad-an-indian-fried-dish.jpg?s=612x612&w=0&k=20&c=WNBWP2z6sXYhPSFbfxmVJe1oVkWtQHY-lc7RbWeM84o=",
+            "tags": [
+                "vegetarian",
+                "paapad",
+                "papadam",
+                "happala",
+                "snack"
+            ],
+            "ingredients": "Urad dal flour, spices",
+            "description": "Thin, crispy, and savory lentil wafers",
+            "course": "snack",
+            "diet": "veg",
+            "flavor_profile": [
+                "salty",
+                "spicy"
+            ],
+            "cooking_method": "deep-fried",
+            "veg": true,
+            "cuisine": ""
+        },
+        {
+            "id": "payasam",
+            "name": "Payasam",
+            "image": "https://media.istockphoto.com/id/692446072/photo/most-famous-indian-sweet-pudding-kheer-or-semiya-khir-in-a-bowl-selective-focus.jpg?s=612x612&w=0&k=20&c=EYeuMLOgqpcFRtrDJ8KPGdxPjlUOrBhUwgjzU0Jwt5k=",
+            "tags": [
+                "vegetarian",
+                "south_indian",
+                "sweet",
+                "payasa"
+            ],
+            "ingredients": "Rice, milk, sugar, cardamom, ghee, nuts",
+            "description": "A creamy and sweet rice pudding",
+            "course": "dessert",
+            "diet": "veg",
+            "flavor_profile": [
+                "sweet"
+            ],
+            "cooking_method": "boiled",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "tamil_nadu"
+            }
         }
     ]
 }
