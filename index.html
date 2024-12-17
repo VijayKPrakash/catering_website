@@ -118,6 +118,11 @@
                     <span id="cartBadge" class="badge bg-danger">0</span>
                 </button>
             </div>
+            <div class="col-md-4">
+                <button id="clearFiltersButton" class="btn btn-custom clear-btn">
+                    Clear Filters
+                </button>
+            </div>
         </div>
 
         <div id="results" class="row g-4"></div>
@@ -535,6 +540,15 @@
             const filteredData = tag ? dishData.filter(item => item.tags.includes(tag)) : dishData;
             maxVisibleDishes = DISHES_PER_PAGE; // Reset to default
             renderResults(filteredData);
+        });
+
+        // Clear filter functionality
+        clearFiltersButton.addEventListener('click', () => {
+            const searchbox = document.getElementById('searchInput');
+            searchbox.value = '';
+            const filtertag = document.getElementById('filterTags');
+            filtertag.value = ''
+            renderResults(dishData);
         });
     </script>
 </body>
