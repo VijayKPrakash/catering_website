@@ -470,6 +470,10 @@
             "flavor_profile": [
                 "spicy"
             ],
+            "texture": [
+                "soft",
+                "crunchy"
+            ],
             "cooking_method": "deep-fried",
             "veg": true,
             "cuisine": "south_indian"
@@ -489,10 +493,12 @@
             "course": "dessert",
             "diet": "veg",
             "flavor_profile": [
-                "sweet",
+                "sweet"
+            ],
+            "texture": [
                 "crispy",
                 "juicy"
-            ],
+            ]
             "cooking_method": "deep-fried",
             "veg": true,
             "cuisine": ""
@@ -514,12 +520,99 @@
             "course": "dessert",
             "diet": "veg",
             "flavor_profile": [
-                "sweet",
-                "crispy"
+                "sweet"
             ],
+            "texture": "crispy",
             "cooking_method": "deep-fried",
             "veg": true,
             "cuisine": ""
+        },
+        {
+            "id": "idli",
+            "name": "Idli",
+            "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "tags": [
+                "vegetarian",
+                "rice cake"
+            ],
+            "ingredients": "rice, urad dal, salt",
+            "description": "Soft and fluffy steamed cakes",
+            "course": "breakfast",
+            "diet": "veg",
+            "flavor_profile": [
+                "mild",
+                "bland"
+            ],
+            "texture": "soft",
+            "cooking_method": "steamed",
+            "veg": true,
+            "cuisine": {
+                "south_indian": "tamil_nadu"
+            }
+        },
+        {
+            "id": "vada",
+            "name": "Vada",
+            "image": "https://images.unsplash.com/photo-1683533678033-f5d60f0a3437?q=80&w=1588&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "tags": [
+                "vegetarian",
+                "south_indian"
+            ],
+            "ingredients": "urad dal, salt, spices",
+            "description": "Deep-fried savory lentil donuts",
+            "course": "sides",
+            "diet": "veg",
+            "flavor_profile": [
+                "spicy"
+            ],
+            "texture": "crunchy",
+            "cooking_method": "deep-fried",
+            "veg": true,
+            "cuisine": "south_indian"
+        },
+        {
+            "id": "butter-chicken",
+            "name": "Butter Chicken",
+            "image": "https://t3.ftcdn.net/jpg/06/01/41/66/360_F_601416673_Tn9dqtXuujNiavuJnNNspgcDezsStYpD.jpg",
+            "tags": [
+                "non-vegetarian",
+                "chicken"
+            ],
+            "ingredients": "chicken, tomatoes, cream, butter, spices",
+            "description": "A creamy and buttery chicken curry",
+            "course": "main",
+            "diet": "non-veg",
+            "flavor_profile": [
+                "spicy"
+            ],
+            "texture": "creamy",
+            "cooking_method": "simmered",
+            "veg": false,
+            "cuisine": {
+                "north_indian": "punjab"
+            }
+        },
+        {
+            "id": "malai-kofta",
+            "name": "Malai Kofta",
+            "image": "https://carameltintedlife.com/wp-content/uploads/2020/11/Malai-Kofta-1-of-1-9-480x270.jpg",
+            "tags": [
+                "vegetarian",
+                "north_indian"
+            ],
+            "ingredients": "cottage cheese, potatoes, cream, tomatoes, cashews, spices",
+            "description": "Cottage cheese dumplings in a creamy tomato gravy",
+            "course": "main course",
+            "diet": "veg",
+            "flavor_profile": [
+                "creamy",
+                "spicy"
+            ],
+            "cooking_method": "simmered",
+            "veg": true,
+            "cuisine": {
+                "north_indian": "punjab"
+            }
         }
     ]
 }
