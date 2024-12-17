@@ -421,6 +421,60 @@
             "veg": true
         },
         {
+            "id": "potato-palya",
+            "name": "Potato Palya",
+            "image": "https://www.indianveggiedelight.com/wp-content/uploads/2020/09/potato-sagu-featured.jpg",
+            "tags": [
+                "vegetarian",
+                "bombay saagu",
+                "saagu",
+                "aloo",
+                "gravy"
+            ],
+            "ingredients": [
+                "potatoes",
+                "mustard seeds",
+                "urad dal",
+                "chilies",
+                "curry leaves",
+                "turmeric powder",
+                "asafoetida"
+            ],
+            "description": "A spicy and flavorful potato curry that puri is typically accompanied by",
+            "course": "main",
+            "diet": "veg",
+            "flavor_profile": [
+                "spicy"
+            ],
+            "cooking_method": "sautéed",
+            "veg": true,
+            "cuisine": "south_indian"
+        },
+        {
+            "id": "bonda",
+            "name": "Bonda",
+            "image": "https://i0.wp.com/kalimirchbysmita.com/wp-content/uploads/2016/07/Mysore-Bonda-02.jpg",
+            "tags": [
+                "vegetarian",
+                "bhajia",
+                "bajji",
+                "pakora"
+            ],
+            "ingredients": [
+                "urad dal, spices",
+                "vegetables"
+            ],
+            "description": "Deep-fried savory snack",
+            "course": "snack",
+            "diet": "veg",
+            "flavor_profile": [
+                "spicy"
+            ],
+            "cooking_method": "deep-fried",
+            "veg": true,
+            "cuisine": "south_indian"
+        },
+        {
             "id": "jalebi",
             "name": "Jalebi",
             "image": "https://as1.ftcdn.net/v2/jpg/02/02/49/44/1000_F_202494465_CZbnTcuxHvA4MHMQn9mv6qBiixXnxPCz.jpg",
