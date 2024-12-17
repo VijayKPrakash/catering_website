@@ -219,6 +219,10 @@
     <script>
         let dishData = []; // We will fetch data from the JSON file using fetchDishes()
 
+        function toProperCase(str) {
+            return str.replace(/([A-Z])/g, ' $1').replace(/^./, str[0].toUpperCase());
+        }
+
         const fetchDishes = async () => {
             try {
                 const response = await fetch('food_db.json5');
@@ -499,9 +503,32 @@
             doc.setFontSize(20);
             doc.text('M G Prakash Catering - Order Details', 10, 20);
 
+            // Collect form data
+            const formData = {
+                name: document.getElementById('clientName').value,
+                phoneNumber: `${document.getElementById('countryCode').value} ${document.getElementById('phoneNumber').value}`,
+                address: document.getElementById('eventAddress').value,
+                date: document.getElementById('eventDate').value,
+                time: document.getElementById('eventTime').value,
+                eventName: document.getElementById('eventName').value,
+                totalGuests: document.getElementById('totalGuests').value,
+                vegetarianGuests: document.getElementById('vegetarianGuests').value
+            };
+
+            let yPosition = 30
             doc.setFontSize(12);
+            for (const key in formData) {
+                doc.text(`${toProperCase(key)}: ${formData[key]}`, 10, yPosition);
+                yPosition += 10;
+            }
+            // popupWindow.document.write(`${key}: ${formData[key]}`);
+
+            doc.setFontSize(16);
+            doc.text('Menu', 10, yPosition + 10);
+            doc.setFontSize(12);
+            yPosition += 20;
             cart.forEach((item, index) => {
-                doc.text(`${index + 1}. ${item.name}`, 10, 30 + (index * 10));
+                doc.text(`${index + 1}. ${item.name}`, 10, yPosition + (index * 10));
             });
 
             doc.save('catering_order.pdf');      // Download PDF
@@ -515,9 +542,32 @@
             doc.setFontSize(20);
             doc.text('M G Prakash Catering - Order Details', 10, 20);
 
+            // Collect form data
+            const formData = {
+                name: document.getElementById('clientName').value,
+                phoneNumber: `${document.getElementById('countryCode').value} ${document.getElementById('phoneNumber').value}`,
+                address: document.getElementById('eventAddress').value,
+                date: document.getElementById('eventDate').value,
+                time: document.getElementById('eventTime').value,
+                eventName: document.getElementById('eventName').value,
+                totalGuests: document.getElementById('totalGuests').value,
+                vegetarianGuests: document.getElementById('vegetarianGuests').value
+            };
+
+            let yPosition = 30
             doc.setFontSize(12);
+            for (const key in formData) {
+                doc.text(`${toProperCase(key)}: ${formData[key]}`, 10, yPosition);
+                yPosition += 10;
+            }
+            // popupWindow.document.write(`${key}: ${formData[key]}`);
+
+            doc.setFontSize(16);
+            doc.text('Menu', 10, yPosition + 10);
+            doc.setFontSize(12);
+            yPosition += 20;
             cart.forEach((item, index) => {
-                doc.text(`${index + 1}. ${item.name}`, 10, 30 + (index * 10));
+                doc.text(`${index + 1}. ${item.name}`, 10, yPosition + (index * 10));
             });
 
             doc.output('dataurlnewwindow');     // Open preview in new pane
