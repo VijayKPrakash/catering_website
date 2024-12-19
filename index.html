@@ -47,7 +47,8 @@
                                     <!-- Add more country codes as needed -->
                                 </select>
                                 <input type="tel" class="form-control" id="phoneNumber" required
-                                    placeholder="Enter phone number" pattern="[0-9]{10}">
+                                    placeholder="Enter phone number" pattern="[0-9]{10}" maxlength="10"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
                             </div>
                         </div>
                     </div>
@@ -67,10 +68,28 @@
                         <div class="col-md-4 mb-3">
                             <label for="eventDate" class="form-label">Date of Event</label>
                             <input type="date" class="form-control" id="eventDate" required>
+                            <script id="setMinDateScript">
+                                document.addEventListener('DOMContentLoaded', (event) => {
+                                    // Get today's date in YYYY-MM-DD format
+                                    const today = new Date().toISOString().split('T')[0];
+                                    // Set the min attribute of the date input to today's date
+                                    document.getElementById('eventDate').setAttribute('min', today);
+                                    // Set the value attribute of the date input to today's date
+                                    document.getElementById('eventDate').value = today;
+                                });
+                            </script>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="eventTime" class="form-label">Time of Event</label>
                             <input type="time" class="form-control" id="eventTime" required>
+                            <script id="setDefaultTimeScript">
+                                document.addEventListener('DOMContentLoaded', (event) => {
+                                    const now = new Date();
+                                    const hours = String(now.getHours()).padStart(2, '0');
+                                    const minutes = String(now.getMinutes()).padStart(2, '0');
+                                    document.getElementById('eventTime').value = `${hours}:${minutes}`;
+                                });
+                            </script>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="eventName" class="form-label">Name of Event</label>
@@ -497,45 +516,17 @@
 
         // Export PDF functionality
         exportCartPdfBtn.addEventListener('click', () => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            doc.setFontSize(20);
-            doc.text('M G Prakash Catering - Order Details', 10, 20);
-
-            // Collect form data
-            const formData = {
-                name: document.getElementById('clientName').value,
-                phoneNumber: `${document.getElementById('countryCode').value} ${document.getElementById('phoneNumber').value}`,
-                address: document.getElementById('eventAddress').value,
-                date: document.getElementById('eventDate').value,
-                time: document.getElementById('eventTime').value,
-                eventName: document.getElementById('eventName').value,
-                totalGuests: document.getElementById('totalGuests').value,
-                vegetarianGuests: document.getElementById('vegetarianGuests').value
-            };
-
-            let yPosition = 30
-            doc.setFontSize(12);
-            for (const key in formData) {
-                doc.text(`${toProperCase(key)}: ${formData[key]}`, 10, yPosition);
-                yPosition += 10;
-            }
-            // popupWindow.document.write(`${key}: ${formData[key]}`);
-
-            doc.setFontSize(16);
-            doc.text('Menu', 10, yPosition + 10);
-            doc.setFontSize(12);
-            yPosition += 20;
-            cart.forEach((item, index) => {
-                doc.text(`${index + 1}. ${item.name}`, 10, yPosition + (index * 10));
-            });
-
-            doc.save('catering_order.pdf');      // Download PDF
+            const reportDoc = generateReport();
+            reportDoc.save('catering_order.pdf'); // Download PDF
         });
 
         // Preview cart PDF functionality
         previewCartPdfBtn.addEventListener('click', () => {
+            const reportDoc = generateReport();
+            reportDoc.output('dataurlnewwindow'); // Open preview in new pane
+        });
+
+        function generateReport() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
@@ -554,13 +545,12 @@
                 vegetarianGuests: document.getElementById('vegetarianGuests').value
             };
 
-            let yPosition = 30
+            let yPosition = 30;
             doc.setFontSize(12);
             for (const key in formData) {
                 doc.text(`${toProperCase(key)}: ${formData[key]}`, 10, yPosition);
                 yPosition += 10;
             }
-            // popupWindow.document.write(`${key}: ${formData[key]}`);
 
             doc.setFontSize(16);
             doc.text('Menu', 10, yPosition + 10);
@@ -570,8 +560,8 @@
                 doc.text(`${index + 1}. ${item.name}`, 10, yPosition + (index * 10));
             });
 
-            doc.output('dataurlnewwindow');     // Open preview in new pane
-        });
+            return doc;
+        }
 
         // Initial render
         renderResults(dishData);
