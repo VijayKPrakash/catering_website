@@ -159,17 +159,59 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-white text-center py-3 mt-5">
+    <footer class="bg-dark text-white text-center py-4 mt-5">
         <div class="container">
-            <p>M G Prakash Catering</p>
-            <p>Address: 611, 10th Cross Rd, Indiranagar Rajajinagar, Bengaluru, Karnataka 560079</p>
-            <p>Contact: +91 98801 93165 | Email: vijaykumar.sb.99@gmail.com</p>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h5 class="mb-1">M G Prakash Catering</h5>
+                    <p class="mb-1">611, 10th Cross Rd, Indiranagar Rajajinagar, Bengaluru, Karnataka 560079</p>
+                    <p class="mb-3">
+                        <a href="https://wa.me/919880193165" target="_blank" class="text-white">
+                            <i class="bi bi-telephone-fill"></i> +91 98801 93165
+                        </a> |
+                        <a href="mailto:vijaykumar.sb.99@gmail.com" class="text-white">
+                            <i class="bi bi-envelope-fill"></i> vijaykumar.sb.99@gmail.com
+                        </a>
+                    </p>
+                    <div class="social-links mb-3">
+                        <a href="https://www.facebook.com" target="_blank" class="text-white me-3" style="font-size: 1.5rem;">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" class="text-white me-3" style="font-size: 1.5rem;">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-white me-3" style="font-size: 1.5rem;">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" class="text-white" style="font-size: 1.5rem;">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="mb-0">&copy; 2024 M G Prakash Catering. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div id="map" style="height: 200px; width: 100%;"></div>
+                    <script>
+                        function initMap() {
+                            const location = { lat: 12.9967523, lng: 77.5446946 }; // Coordinates for business
+                            const map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 15,
+                                center: location // Coordinates for the specified location
+                            });
+                            const marker = new google.maps.Marker({
+                                position: location,
+                                map: map
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
         </div>
-    </footer>
+    </footer></a></div>
 
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT87uqYnc8po5BfVLG9JT0fx4Xd7ACrOs&libraries=places"></script>
-    <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT87uqYnc8po5BfVLG9JT0fx4Xd7ACrOs&libraries=places&callback=initMap"
+        async defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Basic form validation
